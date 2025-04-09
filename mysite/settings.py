@@ -14,8 +14,8 @@ from pathlib import Path
 from django.core.management.utils import get_random_secret_key
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
+import pymysql
+pymysql.install_as_MySQLdb()
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -78,10 +78,27 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
+""" DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
+    }
+} """
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'x23423625-event-rds',
+        'USER': 'admin',
+        'PASSWORD': 'x23423625-event-rds',
+        'HOST': 'x23423625-event-rds.cewtwnkkj49j.eu-central-1.rds.amazonaws.com',
+        'PORT': '3306',
+        'TEST': {
+            'NAME': 'test_db',  # Use a different name for the test database
+            'CHARSET': 'utf8mb4',  # Ensures utf8 support (optional but recommended)
+            'COLLATION': 'utf8mb4_unicode_ci',
+        },
     }
 }
 
