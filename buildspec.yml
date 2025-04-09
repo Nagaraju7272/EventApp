@@ -1,4 +1,13 @@
 version: 0.2
+
+env:    
+  variables:
+    DB_NAME: "x23423625-event-rds"
+    DB_USER: "admin"
+    DB_HOST: "x23423625-event-rds.cewtwnkkj49j.eu-central-1.rds.amazonaws.com"
+    DB_PASSWORD: "x23423625-event-rds"
+    DB_PORT: "3306"
+
 phases:
   install:
     runtime-versions:

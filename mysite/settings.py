@@ -86,7 +86,7 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 } """
 
 
-DATABASES = {
+""" DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'x23423625-event-rds',
@@ -100,7 +100,20 @@ DATABASES = {
             'COLLATION': 'utf8mb4_unicode_ci',
         },
     }
+} """
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ.get('DB_NAME', ''),       # DB name
+        'USER': os.environ.get('DB_USER', ''),       # DB username
+        'PASSWORD': os.environ.get('DB_PASSWORD', ''),  # DB password
+        'HOST': os.environ.get('DB_HOST', ''),       # DB host
+        'PORT': os.environ.get('DB_PORT', '3306'),
+    }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
