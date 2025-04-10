@@ -18,7 +18,7 @@
                         {% csrf_token %}
                         
                         <div class="form-group mb-3">
-                            <label for="{{ form.username.id_for_label }}" class="fw-bold">Raju :</label>
+                            <label for="{{ form.username.id_for_label }}" class="fw-bold">username:</label>
                             <input type="text" name="{{ form.username.name }}" class="form-control border-0 p-2"
                                 style="border-radius: 8px;" value="{{ form.username.value }}" />
                             {% if form.username.errors %}
